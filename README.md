@@ -18,7 +18,7 @@ This project is a real-time detection system for Arabic Sign Language made by YO
 
 Arabic Sign Language(ASL): A visual-gestural language used by deaf and hard of hearing communities primarily in our Arabian words. Just like spoken languages
 
-![ASL](Files/Signs.png)
+![ASL](Files/Images/Signs.png)
 
 - Dataset: [Link Text](https://www.kaggle.com/datasets/ammarsayedtaha/arabic-sign-language-dataset-2022)
 - Kaggle Notebook: [Link Text](https://www.kaggle.com/code/abdalrhmantwfik/arabic-sign-language-asl)
@@ -31,9 +31,8 @@ Arabic Sign Language(ASL): A visual-gestural language used by deaf and hard of h
 - Utilizes any webcam to apply the inference
 
 ## Demo
-<!--
-![Demo](Files/demo.gif)
--->
+
+![Demo](Files/ASL_Demo_readme.gif)
 
 ## Installation
 
