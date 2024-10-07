@@ -4,7 +4,7 @@
 
 ## Overview
 
-This project is a real-time detection system for Arabic Sign Language made by YOLOv8
+This project is a real-time detection system for Arabic Sign Language made by YOLOv10
 
 ## Table of Contents
 
