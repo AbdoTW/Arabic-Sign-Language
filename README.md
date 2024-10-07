@@ -21,7 +21,7 @@ Arabic Sign Language(ASL): A visual-gestural language used by deaf and hard of h
 ![ASL](Files/Images/Signs.png)
 
 - Dataset: [Link Text](https://www.kaggle.com/datasets/ammarsayedtaha/arabic-sign-language-dataset-2022)
-- Kaggle Notebook: [Link Text](https://www.kaggle.com/code/abdalrhmantwfik/arabic-sign-language-asl)
+- Kaggle Notebook: [Link Text](https://www.kaggle.com/code/abdalrhmantwfik/arabic-sign-language-arsl-yolov10m)
 
 
 ## Features
