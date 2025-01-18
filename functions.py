@@ -2,8 +2,13 @@ from PIL import ImageFont, ImageDraw, Image
 import numpy as np
 import cv2
 import arabic_reshaper
+from bidi.algorithm import get_display
 
 
+def reshape(char_on_box):
+    reshaped_sentence = arabic_reshaper.reshape(char_on_box)
+    final_sentence = get_display(reshaped_sentence)
+    return final_sentence
 
 # draw a sentence or a char on a frame
 def Draw_arabic_text(frame, coordinate, sentence, font_size, rgb_color):
@@ -24,18 +29,20 @@ def Add_affect(frame, coordinate1, coordinate2):
 
 
 def Formate_arabic_text(captured_letters):
-    reversed_text_list = captured_letters[::-1]
-    word = ''.join(reversed_text_list )
-    formated_sentence = arabic_reshaper.reshape(word)
-    return formated_sentence
+    sentence_str = ''.join(captured_letters)
+    words = sentence_str.split(' ')
+    reversed_sentence = ' '.join(words)
+    reshaped_sentence = arabic_reshaper.reshape(reversed_sentence)
+    final_sentence = get_display(reshaped_sentence)
+    return final_sentence
 
 
 def Update_sentence(id, captured_letters, predicted_char):
     captured_letters = captured_letters
-    if id != 29:
-        captured_letters.insert(0, predicted_char)  # take the char
+    if id != 29: # delete char
+        captured_letters.append(predicted_char)
     else:
-        del captured_letters[0]
+        del captured_letters[-1]
     return captured_letters  # the updated one
 
 
