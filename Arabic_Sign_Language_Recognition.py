@@ -3,7 +3,7 @@ from ultralytics import YOLO
 import functions
 
 # we got these weights from training YOLO model on custom dataset on kaggle
-yolo_model = YOLO('best(ASL).pt')  # Replace with your model path
+yolo_model = YOLO('best_ASL.pt')  # Replace with your model path
 
 yolo_names = yolo_model.names
 print(yolo_names[27])
@@ -33,7 +33,7 @@ cap.set(4,720)
 while True:
     ret, frame = cap.read()
 
-    yolo_result = yolo_model.predict(frame)
+    yolo_result = yolo_model.predict(frame, device='cuda')
 
     # draw arabic text on frame , return the drawn frame
     frame =  functions.Draw_arabic_text(frame , (100,20) , formatted_sentence , 35 , (0,255,255))
@@ -52,13 +52,15 @@ while True:
 
             cv2.rectangle(frame, (x1, y1), (x2, y2), (0, 0, 0), 3)  # Draw the bounding box
             # draw char on bounding box
-            frame = functions.Draw_arabic_text(frame, (x1 , y1 - 50), char_on_box, 45, (0, 0, 0))
+            word_on_box = functions.reshape(char_on_box)
+            
+            frame = functions.Draw_arabic_text(frame, (x1 , y1 - 50), word_on_box, 45, (0, 0, 0))
             # do we capture the sign based on shot_counter(number of same sequential sign frames)  or not ?
             char_check_dic , shot_counter = functions.Sequence_char_checker(id , char_check_dic, shot_counter)
 
-            if shot_counter >= 8 :  # if the same sign (same letter) is in 8 sequential frames
+            if shot_counter >= 12 :  # if the same sign (same letter) is in 15 sequential frames
                 # take this hand sign(letter) , then update the entire captured letters
-                captured_letters = functions.Update_sentence(id , captured_letters ,predicted_char)  # retunr the updated list
+                captured_letters = functions.Update_sentence(id , captured_letters ,predicted_char)  # add or remove char from list ?
                 # update predicted word
                 formatted_sentence  = functions.Formate_arabic_text(captured_letters)
                 # add affect on bounding box when capturing the sign
