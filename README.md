@@ -34,17 +34,29 @@ Arabic Sign Language(ASL): A visual-gestural language used by deaf and hard of h
 
 ![Demo](Files/ASL_Demo_readme.gif)
 
-## Installation
+## Installation (how to use ?)
 
-
+- 1- create a conda environment with python version 3.10 
 ```bash
-pip install ultralytics
-pip install opencv-python
-pip install matplotlib
-pip install numpy
-pip install cv2
-pip install arabic_reshaper
-pip install PIL
+ conda create --name arabic_sing_language python=3.10
+```
+- 2- activate this environment
+```bash
+ conad activate arabic_sign_language
+```
+- 2- install pytorch with supporting GPU (selete your CUDA version)
+```bash
+ conda install pytorch torchvision torchaudio pytorch-cuda=11.8 -c pytorch -c nvidia
+``` 
+- 3- install some packages 
+```bash
+ conda install -c conda-forge ultralytics -y
+ conda install -c conda-forge arabic_reshaper -y
+ conda install -c conda-forge python-bidi
+```
+- 4- use this command to run the project (make sure the camera is open)
+```bash
+ python Arabic_Sign_Language_Recognition.py
 ```
 
 ## Results
