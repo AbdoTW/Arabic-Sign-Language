@@ -35,7 +35,6 @@ Arabic Sign Language(ASL): A visual-gestural language used by deaf and hard of h
 ![Demo](Files/ASL_Demo_readme.gif)
 
 ## Installation (how to use ?)
-
 - 1- create a conda environment with python version 3.10 
 ```bash
  conda create --name arabic_sing_language python=3.10
@@ -44,7 +43,7 @@ Arabic Sign Language(ASL): A visual-gestural language used by deaf and hard of h
 ```bash
  conad activate arabic_sign_language
 ```
-- 2- install pytorch with supporting GPU (selete your CUDA version)
+- 2- install pytorch with supporting GPU [Setup NVIDIA GPU for PyTorch](https://youtu.be/r7Am-ZGMef8?si=mBBcznTvfpIOPRCa)
 ```bash
  conda install pytorch torchvision torchaudio pytorch-cuda=11.8 -c pytorch -c nvidia
 ``` 
